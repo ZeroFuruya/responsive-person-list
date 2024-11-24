@@ -500,7 +500,6 @@ body {
 .t-person:hover:before,
 .t-person:hover:after {
   font-size: 1.5rem;
-  text-shadow: 5px 5px 1px #e600ff;
   background: rgba(157, 0, 154, 0.5);
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);

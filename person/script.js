@@ -14,7 +14,7 @@ function initSwapFun() {
     toggleCurrent(formContainer);
     toggleCurrent(tableContainer);
   });
-  
+  // a
   tableContainer.addEventListener("click", () => {
     if (tableContainer.classList.contains("current")) {
       return;

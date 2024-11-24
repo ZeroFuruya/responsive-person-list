@@ -1,0 +1,553 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --current-vh: 90vh;
+  --current-vw: 45vw;
+  --ncurrent-vh: 80vh;
+  --ncurrent-vw: 25vw;
+
+  --current-vw-m: 65vw;
+  --ncurrent-vw-m: 45vw;
+
+  --current-vw-s: 85vw;
+  --ncurrent-vw-s: 65vw;
+
+  --current-vw-xs: 90vw;
+  --ncurrent-vw-xs: 70vw;
+
+  --current-top: 50%;
+  --current-left: 45%;
+  --ncurrent-top: 50%;
+  --ncurrent-left: 65%;
+
+  --transition-in: all 0.25s ease-out 0s;
+  --transition-out: all 0.25s ease-out 0s;
+
+  --color-light-red: #ff354d;
+  --color-red: #ff001ed2;
+  --color-magenta: rgba(242, 0, 230, 0.5);
+  --color-magenta-light: rgb(223, 45, 255);
+  --color-magenta-dark: rgba(139, 0, 133, 0.5);
+
+  --shadow-color-red: #1f0001;
+
+  --text-shadow-default: 2px 2px 2px var(--shadow-color-red);
+  --text-shadow-light: 2px 2px 5px var(--color-light-red);
+
+  --box-shadow-default: 0 8px 32px 0 var(--color-magenta-dark);
+  --box-shadow-light: 0 8px 32px 0 var(--color-magenta-light);
+  --box-shadow-red: 0 8px 32px 0 var(--color-light-red);
+  
+}
+
+body {
+  background-image: url('../assets/imgs/cyberpunk.jpg');
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-position: center center; /* Centers the image */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  --sb-track-color: #312333;
+  --sb-thumb-color: #c300b2;
+  --sb-size: .7rem;
+}
+
+/* Background Modifications ----------------------------------------------------------------------------------------------------------- */
+.background-blur {
+  background: rgba(27, 27, 27, 0.4);
+  box-shadow: 0 8px 32px 0 var(--shadow-color-red);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.background-overlay-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/imgs/stone-wall-texture.jpg"); /* Film grain or noise texture */
+  background-size: cover;
+  pointer-events: none; /* Prevents it from blocking interactions with other elements */
+  opacity: 0.1; /* Adjust the opacity to control how visible the texture is */
+}
+
+.background-overlay-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/imgs/blurry-neon-light-background.jpg"); /* Film grain or noise texture */
+  background-size: cover;
+  pointer-events: none; /* Prevents it from blocking interactions with other elements */
+  opacity: 0.1; /* Adjust the opacity to control how visible the texture is */
+}
+/* Background Modifications ----------------------------------------------------------------------------------------------------------- */
+
+/* Main */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.design-container {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+}
+/* Main */
+
+/* Designs */
+
+/* Designs */
+
+/* Form ----------------------------------------------------------------------------------------------------------- */
+.form__container {
+  z-index: 2;
+  position: absolute;
+  height: var(--current-vh);
+  width: var(--current-vw);
+  top: var(--current-top);
+  left: var(--current-left);
+  transform: translate(-50%, -50%);
+  transition: var(--transition-out);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(46, 46, 46, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  max-height: 90vh; /* Prevent it from going beyond the viewport */
+  overflow-y: auto; /* Enable scrolling if needed */
+}
+
+.form {
+  width: 90%;
+  height: 90%;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  height: 7rem;
+}
+
+.fields label {
+  font-family: "Katana";
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-red);
+  text-shadow: 2px 2px 4px var(--shadow-color-red);
+}
+
+.fields select,
+.fields select option {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  font-family: "Lemon-Milk";
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-red);
+  text-shadow: var(--text-shadow-default);
+}
+.fields select option {
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+  font-family: "Lemon-Milk", sans-serif; /* Font family */
+  font-size: 1rem; /* Font size */
+  font-weight: 900; /* Font weight */
+  color: rgb(0, 0, 0); /* Text color */
+  text-shadow: var(--text-shadow-default); /* Text shadow */
+}
+
+.fields p {
+  overflow: auto;
+  text-justify: distribute;
+}
+
+.program-year-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.program-year-section .fields {
+  flex: 1 0 10rem;
+  padding-right: 1rem;
+}
+
+.fields label,
+.fields input,
+.fields button {
+  font-size: clamp(2rem, 3vw, 1.5rem); /* Dynamic size */
+}
+
+.fields input, .fields select {
+  position: relative;
+  color: var(--color-light-red);
+  font-family: "Lemon-Milk";
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 2;
+  background: rgba(55, 0, 106, 0);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.fields input:hover, .fields select:hover {
+  font-size: 1.25rem;
+  background: rgba(121, 0, 242, 0);
+  box-shadow: var(--box-shadow-red);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border-color: var(--color-red);
+  outline: none;
+}
+
+.fields input:focus {
+  background: rgba(121, 0, 242, 0);
+  box-shadow: var(--box-shadow-red);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border-color: var(--color-red);
+  outline: none;
+}
+
+.fields input:focus {
+  box-shadow: 0 0 5px var(--color-red), 0 0 5px var(--color-red) inset;
+}
+
+
+.fields button {
+  position: relative;
+  color: var(--color-magenta-light);
+  font-family: "Lemon-Milk";
+  font-size: 1.25rem;
+  font-weight: 900;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  z-index: 2;
+
+  background: rgba(54, 0, 106, 0.2);
+  box-shadow: var(--box-shadow-default);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fields button:before,
+.fields button:after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  border: 1px solid;
+  
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.fields button:before{
+   top: 0;
+   left: 0;
+   border-bottom-color: transparent;
+   border-right-color: transparent;
+   border-top-color: var(--color-magenta-light);
+   border-left-color: var(--color-magenta-light);
+}
+
+.fields button:after{
+   bottom: 0;
+   right: 0;
+   border-top-color: transparent;
+   border-left-color: transparent;
+   border-bottom-color: var(--color-magenta-light);
+   border-right-color: var(--color-magenta-light);
+}
+
+.fields button:hover:before,
+.fields button:hover:after {
+
+  font-size: 1.5rem;
+  text-shadow: 5px 5px 1px #ff00ff;
+  background: rgba(123, 0, 242, 0.5);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-color: var(--color-magenta-light);
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 5px var(--color-magenta-light), 0 0 5px var(--color-magenta-light) inset;
+}
+
+
+/* Form ----------------------------------------------------------------------------------------------------------- */
+
+/* Table ----------------------------------------------------------------------------------------------------------- */
+.table__container {
+  z-index: 1;
+  position: absolute;
+  height: var(--ncurrent-vh);
+  width: var(--ncurrent-vw);
+  top: var(--ncurrent-top);
+  left: var(--ncurrent-left);
+  transform: translate(-50%, -50%);
+  transition: var(--transition-in);
+
+  background: rgba(46, 46, 46, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Table ----------------------------------------------------------------------------------------------------------- */
+
+/* Transitions ----------------------------------------------------------------------------------------------------------- */
+/* Used in JS to add classlist */
+.form__container:hover:not(.current),
+.table__container:hover:not(.current) {
+  cursor: pointer;
+  height: 85vh;
+  width: 30vw;
+  left: 70%;
+}
+
+.current {
+  z-index: 2;
+  height: var(--current-vh);
+  width: var(--current-vw);
+  top: var(--current-top);
+  left: var(--current-left);
+}
+
+.ncurrent {
+  z-index: 1;
+  height: var(--ncurrent-vh);
+  width: var(--ncurrent-vw);
+  top: var(--ncurrent-top);
+  left: var(--ncurrent-left);
+}
+/* Transitions ----------------------------------------------------------------------------------------------------------- */
+
+
+/* Utils */
+.width-xxsmall {
+  width: clamp(2rem, 5rem, 8rem);
+}
+
+.width-xsmall {
+  width: clamp(10rem, 12rem, 17rem);
+}
+
+.width-small {
+  width: clamp(12rem, 15rem, 20rem);
+}
+.width-medium {
+  width: clamp(15rem, 20rem, 25rem);
+}
+.width-large {
+  width: clamp(20rem, 25rem, 30rem);
+}
+
+.height-xxxsmall {
+  height: 5%;
+}
+.height-small {
+  height: 35%;
+}
+.height-medium {
+  height: 60%;
+}
+.height-large {
+  height: 90%;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.font-lemon {
+  font-family: "Lemon-Milk";
+}
+
+.color-yellow {
+  color: var(--color-red);
+  text-shadow: var(--text-shadow-default);
+}
+/* Utils */
+
+/* Scroll */
+::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 7px;
+  border: 3px solid #31022f;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+/* Scroll */
+
+
+/* Fonts */
+@font-face {
+  font-family: "Murasaki DEMO"; /* Give the font a name */
+  src: url("../assets/fonts/murasaki/Murasaki\ DEMO.otf") format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+@font-face {
+  font-family: "NinjaLine"; /* Give the font a name */
+  src: url("../assets/fonts/ninjaline/NinjaLine.ttf") format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+@font-face {
+  font-family: "Katana"; /* Give the font a name */
+  src: url("../assets/fonts/katana_2/KATANA.ttf") format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+@font-face {
+  font-family: "Itachi"; /* Give the font a name */
+  src: url("../assets/fonts/zenzai_itacha/Zenzai\ Itachi.ttf")
+    format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+@font-face {
+  font-family: "Harukaze"; /* Give the font a name */
+  src: url("../assets/fonts/harukaze/Harukaze.ttf") format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+@font-face {
+  font-family: "Lemon-Milk"; /* Give the font a name */
+  src: url("../assets/fonts/lemon_milk/LEMONMILK-Regular.otf")
+    format("opentype"); /* Link to the font file */
+  font-weight: normal; /* Default font weight */
+  font-style: normal; /* Default font style */
+}
+
+/* Fonts */
+
+/* Responsiveness */
+/* Tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+  .form__container {
+    height: var(--current-vh);
+    width: var(--current-vw-m);
+    top: var(--current-top);
+    left: var(--current-left);
+    transform: translate(-50%, -50%);
+  }
+  .current {
+    height: var(--current-vh);
+    width: var(--current-vw-m);
+    top: var(--current-top);
+    left: var(--current-left);
+  }
+  
+  .ncurrent {
+    height: var(--ncurrent-vh);
+    width: var(--ncurrent-vw-m);
+    top: var(--ncurrent-top);
+    left: var(--ncurrent-left);
+  }
+}
+
+/* Big Phones*/
+@media (max-width: 768px) {
+  .form__container {
+    height: var(--current-vh);
+    width: var(--current-vw-s);
+    top: var(--current-top);
+    left: var(--current-left);
+    transform: translate(-50%, -50%);
+  }
+  .current {
+    height: var(--current-vh);
+    width: var(--current-vw-s);
+    top: var(--current-top);
+    left: var(--current-left);
+  }
+  
+  .ncurrent {
+    height: var(--ncurrent-vh);
+    width: var(--ncurrent-vw-s);
+    top: var(--ncurrent-top);
+    left: var(--ncurrent-left);
+  }
+}
+
+/* Small Phones*/
+@media (max-width: 530px) {
+  .form__container {
+    height: 75vh;
+    width: var(--current-vw-xs);
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .current {
+    height: 75vh;
+    width: var(--current-vw-xs);
+    top: 45%;
+    left: 50%;
+  }
+  
+  .ncurrent {
+    height: 25vh;
+    width: var(--ncurrent-vw-xs);
+    top: 80%;
+    left: 50%;
+  }
+
+  .form__container:hover:not(.current),
+  .table__container:hover:not(.current) {
+    cursor: pointer;
+    height: 30vh;
+    width: 75vw;
+    top: 80%;
+    left: 50%;
+  }
+}
+
+/* Responsiveness */

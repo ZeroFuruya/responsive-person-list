@@ -1,0 +1,13 @@
+.current{
+    height: 90vh;
+    width: 45vw;
+    top: 50%;
+    left: 40%;
+}
+
+.not-current{
+    height: 80vh;
+    width: 25vw;
+    top: 50%;
+    left: 62%;
+}

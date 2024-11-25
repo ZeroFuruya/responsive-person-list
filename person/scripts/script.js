@@ -40,7 +40,7 @@ const t_button_editStudent = document.getElementById("editStudent");
 f_button_addStudent.addEventListener("click", (e) => {
   e.preventDefault();
 
-  logFields()
+  logFields();
 
   const fullname = f_text_fullname.value;
   const sex = f_select_sex.value;
@@ -281,13 +281,7 @@ tableContainer.addEventListener("click", () => {
   toggleCurrent(tableContainer);
 });
 
-// document.addEventListener("click", (e) => {
-//   if (selectedStudent && !e.target.closest(".t-row.selected")) {
-//     deselectStudent();
-//   }
-// });
-
-function logFields(){
+function logFields() {
   console.log(f_text_fullname.value);
   console.log(f_select_sex.value);
   console.log(f_select_program.value);
@@ -295,3 +289,11 @@ function logFields(){
   console.log(f_select_section.value);
   console.log(f_date_birthdate.value);
 }
+
+const titleAnimation = document.querySelector(".title-content");
+const titleBg = document.querySelector(".title-container");
+
+titleAnimation.addEventListener("click", (e) => {
+  titleBg.classList.add("exit");
+  titleBg.classList.add("hidden");
+});

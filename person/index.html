@@ -28,13 +28,13 @@
             <div class="fields width-xsmall">
               <label for="program">Program</label>
               <select name="program" id="program" class="width-xsmall">
-                <option value="" disabled selected>BS in ...</option>
-                <option value="male">BS in Computer Science</option>
-                <option value="female">BS in Information Technology</option>
-                <option value="female">BS in Business Administration</option>
-                <option value="female">BS in Business Management</option>
-                <option value="female">BS in Hospitality Management</option>
-                <option value="female">
+                <option value="placeHolder" disabled selected>BS in ...</option>
+                <option value="bscs">BS in Computer Science</option>
+                <option value="bsit">BS in Information Technology</option>
+                <option value="bsba">BS in Business Administration</option>
+                <option value="bsbm">BS in Business Management</option>
+                <option value="bshm">BS in Hospitality Management</option>
+                <option value="bshrm">
                   BS in Hotel and Restaurant Management
                 </option>
               </select>
@@ -80,7 +80,7 @@
             />
           </div>
           <div class="fields flex-center">
-            <button class="form-button" id="addPerson">Add</button>
+            <button class="form-button" id="addStudent">Add</button>
           </div>
           <div class="fields">
             <p class="font-lemon color-yellow">
@@ -103,7 +103,7 @@
               <div class="t-data t-sect t-head">Section</div>
             </div>
 
-            <div class="t-row t-person">
+            <!-- <div class="t-row t-person">
               <div class="t-data t-id">1</div>
               <div class="t-data t-name">Prince Roben P. Gloria</div>
               <div class="t-data t-age">20</div>
@@ -111,153 +111,16 @@
               <div class="t-data t-prog">BS in Computer Science</div>
               <div class="t-data t-year">1</div>
               <div class="t-data t-sect">A</div>
-            </div>
-
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            <div class="t-row t-person">
-              <div class="t-data t-id">1</div>
-              <div class="t-data t-name">Prince Roben P. Gloria</div>
-              <div class="t-data t-age">20</div>
-              <div class="t-data t-sex">Male</div>
-              <div class="t-data t-prog">BS in Computer Science</div>
-              <div class="t-data t-year">1</div>
-              <div class="t-data t-sect">A</div>
-            </div>
-            
+            </div> -->
           </div>
           <div class="table-buttons flex-end">
-            <button class="t-buttons btn btn-blue" hidden>Edit</button>
-            <button class="t-buttons btn btn-red" hidden>Delete</button>
+            <button class="t-buttons btn btn-blue" id="editStudent" hidden>Edit</button>
+            <button class="t-buttons btn btn-red" id="deleteStudent" hidden>Delete</button>
           </div>
         </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="scripts/script.js"></script>
   </body>
 </html>

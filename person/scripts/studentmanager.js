@@ -19,9 +19,10 @@ export class StudentManager {
     if (this.isDuplicateId(student.id)) {
       throw new Error("Student ID already exists");
     }
-    if (this.isDuplicateName(student.fullname)) {
-        throw new Error("Student Name already exists");
-      }
+    this.#students.push(student);
+  }
+
+  editStudent(student) {
     this.#students.push(student);
   }
 
@@ -31,10 +32,6 @@ export class StudentManager {
 
   isDuplicateId(id) {
     return this.#students.some((student) => student.id === id);
-  }
-
-  isDuplicateName(fullname) {
-    return this.#students.some((student) => student.fullname.toLowerCase() === fullname.toLowerCase());
   }
 
   removeStudent(id) {
@@ -47,4 +44,9 @@ export class StudentManager {
       this.#students[index] = { ...this.#students[index], ...updatedData };
     }
   }
+
+  sortStudentsById() {
+    this.#students.sort((a, b) => a.id - b.id);
+  }
+  
 }

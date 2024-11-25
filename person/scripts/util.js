@@ -163,3 +163,98 @@ export function validateSection(section) {
   // Check if the section is one of the valid options
   return validSections.includes(section.trim().toUpperCase());
 }
+
+// Select Value to Index
+
+export function getSexIndex(sexVal) {
+  switch (sexVal) {
+    case "Male":
+      return 1;
+      break;
+    case "Female":
+      return 2;
+      break;
+    case "Yes Please!":
+      return 3;
+      break;
+    case "Ew! Hell Naahww":
+      return 4;
+      break;
+
+    default:
+      return 0;
+      break;
+  }
+}
+
+export function getProgramIndex(programVal) {
+  switch (programVal) {
+    case "BS in Computer Science":
+      return 1;
+      break;
+    case "BS in Information Technology":
+      return 2;
+      break;
+    case "BS in Business Administration":
+      return 3;
+      break;
+    case "BS in Business Management":
+      return 4;
+      break;
+    case "BS in Hospitality Management":
+      return 5;
+      break;
+    case "BS in Hotel and Restaurant Management":
+      return 6;
+      break;
+
+    default:
+      return 0;
+      break;
+  }
+}
+
+export function getYearIndex(yearVal) {
+  switch (yearVal) {
+    case 1:
+      return 0;
+      break;
+    case 2:
+      return 1;
+      break;
+    case 3:
+      return 2;
+      break;
+    case 4:
+      return 3;
+      break;
+
+    default:
+      return -1;
+      break;
+  }
+}
+
+export function getSectionIndex(sectionVal) {
+  switch (sectionVal) {
+    case "A":
+      return 0;
+      break;
+    case "B":
+      return 1;
+      break;
+    case "C":
+      return 2;
+      break;
+    case "D":
+      return 3;
+      break;
+    case "E":
+      return 4;
+      break;
+
+    default:
+      return -1;
+      break;
+  }
+}

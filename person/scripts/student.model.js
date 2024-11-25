@@ -16,6 +16,7 @@ export class Student {
       this.program = program;
       this.year = year;
       this.section = section;
+      this.birthdate = birthdate;
     }
   
     // ID

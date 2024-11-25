@@ -12,6 +12,10 @@ import {
   validateProgram,
   validateSection,
   validateYear,
+  getSexIndex,
+  getProgramIndex,
+  getYearIndex,
+  getSectionIndex,
 } from "./util.js";
 
 // initialize student list
@@ -36,14 +40,15 @@ const t_button_editStudent = document.getElementById("editStudent");
 f_button_addStudent.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const id = generateUniqueId();
+  logFields()
+
   const fullname = f_text_fullname.value;
   const sex = f_select_sex.value;
   const program = f_select_program.value;
   const year = getYear(f_select_year.value);
   const section = f_select_section.value;
   const birthdate = f_date_birthdate.value;
-
+  console.log(birthdate);
   // validations
   if (!validateFullname(fullname)) {
     alert(
@@ -83,27 +88,48 @@ f_button_addStudent.addEventListener("click", (e) => {
   const age = getAge(birthdate);
   const formattedSex = getSex(f_select_sex.value);
   const formattedProgram = getProgram(f_select_program.value);
-  const newStudent = new Student(
-    id,
-    formattedName,
-    age,
-    formattedSex,
-    formattedProgram,
-    year,
-    section,
-    birthdate
-  );
 
-  if (
-    studentList.isDuplicateId(newStudent.id) ||
-    studentList.isDuplicateName(newStudent.fullname)
-  ) {
-    console.log(newStudent.id);
-    alert("Duplicated Student Name or ID");
-    return;
+  if (selectedStudent) {
+    // Before update, log the selectedStudent
+    console.log("Before Update:", selectedStudent);
+
+    // Update the selected student
+    selectedStudent.fullname = formattedName;
+    selectedStudent.age = age;
+    selectedStudent.sex = formattedSex;
+    selectedStudent.program = formattedProgram;
+    selectedStudent.year = year;
+    selectedStudent.section = section;
+    selectedStudent.birthdate = birthdate;
+
+    // Update the student in the list
+    studentList.removeStudent(selectedStudent.id);
+    studentList.editStudent(selectedStudent);
+
+    // Reset selectedStudent and button text
+    deselectStudent();
+    f_button_addStudent.textContent = "Add"; // Change button text back to "Add"
+    renderStudentTable();
+  } else {
+    const id = generateUniqueId();
+    const newStudent = new Student(
+      id,
+      formattedName,
+      age,
+      formattedSex,
+      formattedProgram,
+      year,
+      section,
+      birthdate
+    );
+    if (studentList.isDuplicateId(newStudent.id)) {
+      alert("Duplicated Student ID");
+      return;
+    }
+
+    // Add the new student
+    studentList.addStudent(newStudent);
   }
-
-  studentList.addStudent(newStudent);
   console.log(studentList.getAllStudents());
   renderStudentTable();
   clearFormFields();
@@ -119,13 +145,14 @@ t_button_deleteStudent.addEventListener("click", (e) => {
   studentList.removeStudent(selectedStudent.id);
   hideTButtons();
   renderStudentTable();
-  console.log(studentList.getAllStudents());
+  clearFormFields();
 });
 
 // edit student
 t_button_editStudent.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
+  f_button_addStudent.textContent = "Edit";
   toggleCurrent(formContainer);
   toggleCurrent(tableContainer);
   occupyFormFields();
@@ -133,6 +160,7 @@ t_button_editStudent.addEventListener("click", (e) => {
 
 // creates/updates student to table
 function renderStudentTable() {
+  studentList.sortStudentsById();
   const tableCol = document.querySelector(".t-col");
 
   // Clear existing rows (if any)
@@ -165,9 +193,10 @@ function renderStudentTable() {
       <div class="t-data t-sect">${student.section}</div>
     `;
 
-    studentRow.addEventListener("click", () =>
-      selectStudent(student, studentRow)
-    );
+    studentRow.addEventListener("click", () => {
+      selectStudent(student, studentRow);
+      console.log(student);
+    });
 
     tableCol.appendChild(studentRow);
   });
@@ -184,9 +213,17 @@ function selectStudent(student, row) {
   selectedStudent = student;
 
   showTButtons();
+}
 
-  console.log("Selected student:", selectedStudent);
-  console.log("Selected student id:", selectedStudent.id);
+function deselectStudent(student, row) {
+  const selectedRow = document.querySelector(".t-row.selected");
+  if (selectedRow) {
+    selectedRow.classList.remove("selected");
+  }
+
+  selectedStudent = null;
+
+  hideTButtons();
 }
 
 function hideTButtons() {
@@ -202,10 +239,10 @@ function showTButtons() {
 // occupy form fields with selectedStudent
 function occupyFormFields() {
   f_text_fullname.value = selectedStudent.fullname;
-  f_select_sex.selectedIndex = selectedStudent.sex;
-  f_select_program.selectedIndex = selectedStudent.program;
-  f_select_year.selectedIndex = selectedStudent.year;
-  f_select_section.selectedIndex = selectedStudent.section;
+  f_select_sex.selectedIndex = getSexIndex(selectedStudent.sex);
+  f_select_program.selectedIndex = getProgramIndex(selectedStudent.program);
+  f_select_year.selectedIndex = getYearIndex(selectedStudent.year);
+  f_select_section.selectedIndex = getSectionIndex(selectedStudent.section);
   f_date_birthdate.value = selectedStudent.birthdate;
 }
 
@@ -243,3 +280,18 @@ tableContainer.addEventListener("click", () => {
   toggleCurrent(formContainer);
   toggleCurrent(tableContainer);
 });
+
+// document.addEventListener("click", (e) => {
+//   if (selectedStudent && !e.target.closest(".t-row.selected")) {
+//     deselectStudent();
+//   }
+// });
+
+function logFields(){
+  console.log(f_text_fullname.value);
+  console.log(f_select_sex.value);
+  console.log(f_select_program.value);
+  console.log(getYear(f_select_year.value));
+  console.log(f_select_section.value);
+  console.log(f_date_birthdate.value);
+}

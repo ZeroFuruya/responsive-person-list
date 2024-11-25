@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Frontend/styles/style.css" />
+    <title>Student List</title>
+  </head>
+  <body>
+    <!-- Foreground -->
+    <div class="title-container">
+      <div class="title-content">
+        <h1>Start?</h1>
+      </div>
+    </div>
+    <!-- Foreground -->
+    <!-- Background -->
+    <div class="background-blur"></div>
+    <div class="background-overlay-1"></div>
+    <div class="background-overlay-2"></div>
+    <!-- Background -->
+
+    <!-- Designs -->
+
+    <!-- Designs -->
+
+    <main class="container">
+      <section class="form__container current">
+        <form class="form" action="">
+          <div class="fields">
+            <label for="fname">Fullname</label>
+            <input type="text" name="fname" id="fname" class="height-small" />
+          </div>
+          <div class="program-year-section">
+            <div class="fields width-xsmall">
+              <label for="program">Program</label>
+              <select name="program" id="program" class="width-xsmall">
+                <option value="placeHolder" disabled selected>BS in ...</option>
+                <option value="bscs">BS in Computer Science</option>
+                <option value="bsit">BS in Information Technology</option>
+                <option value="bsba">BS in Business Administration</option>
+                <option value="bsbm">BS in Business Management</option>
+                <option value="bshm">BS in Hospitality Management</option>
+                <option value="bshrm">
+                  BS in Hotel and Restaurant Management
+                </option>
+              </select>
+            </div>
+            <div class="fields width-xxsmall">
+              <label for="year">Year</label>
+              <select name="year" id="year" class="width-xxsmall">
+                <option value="firstYear">1</option>
+                <option value="secondYear">2</option>
+                <option value="thirdYear">3</option>
+                <option value="fourthYear">4</option>
+              </select>
+            </div>
+            <div class="fields width-small">
+              <label for="section">Section</label>
+              <select name="section" id="section" class="width-xxsmall">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fields">
+            <label for="sex">Sex?</label>
+            <select name="sex" id="sex" class="width-small">
+              <option value="placeHolder" selected disabled>???</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="yes">Yes Please!</option>
+              <option value="ew">Ew! Hell Naahww</option>
+            </select>
+          </div>
+          <div class="fields">
+            <label for="birthdate">Birthdate</label>
+            <input
+              type="date"
+              name="birthdate"
+              id="birthdate"
+              class="width-small"
+            />
+          </div>
+          <div class="fields flex-center">
+            <button class="form-button" id="addStudent">Add</button>
+          </div>
+          <div class="fields">
+            <p class="font-lemon color-yellow">
+              This is a web program that lists college students.
+            </p>
+          </div>
+        </form>
+      </section>
+
+      <section class="table__container ncurrent">
+        <div class="table" action="">
+          <div class="t-col">
+            <div class="t-row t-header">
+              <div class="t-data t-id t-head">ID</div>
+              <div class="t-data t-name t-head">Name</div>
+              <div class="t-data t-age t-head">Age</div>
+              <div class="t-data t-sex t-head">Sex</div>
+              <div class="t-data t-prog t-head">Program</div>
+              <div class="t-data t-year t-head">Year</div>
+              <div class="t-data t-sect t-head">Section</div>
+            </div>
+
+            <!-- <div class="t-row t-person">
+              <div class="t-data t-id">1</div>
+              <div class="t-data t-name">Prince Roben P. Gloria</div>
+              <div class="t-data t-age">20</div>
+              <div class="t-data t-sex">Male</div>
+              <div class="t-data t-prog">BS in Computer Science</div>
+              <div class="t-data t-year">1</div>
+              <div class="t-data t-sect">A</div>
+            </div> -->
+          </div>
+          <div class="table-buttons flex-end">
+            <button class="t-buttons btn btn-blue" id="editStudent" hidden>
+              Edit
+            </button>
+            <button class="t-buttons btn btn-red" id="deleteStudent" hidden>
+              Delete
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="scripts/script.js"></script>
+  </body>
+</html>

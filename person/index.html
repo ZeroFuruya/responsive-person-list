@@ -131,7 +131,12 @@
         </div>
       </section>
     </main>
-
+    <script>
+      if (window.location.protocol === 'file:') {
+        alert("Good day Sir Leal. Kailangan ni siya ug local server or live server para ma access ang script sir. Dili siya mugana if imo e open directly sa file. Thank you.");
+      }
+    </script>
+    
     <script type="module" src="scripts/script.js"></script>
   </body>
 </html>

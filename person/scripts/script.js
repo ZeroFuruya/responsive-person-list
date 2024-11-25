@@ -294,6 +294,7 @@ const titleAnimation = document.querySelector(".title-content");
 const titleBg = document.querySelector(".title-container");
 
 titleAnimation.addEventListener("click", (e) => {
+  e.preventDefault();
   titleBg.classList.add("exit");
   titleBg.classList.add("hidden");
 });
